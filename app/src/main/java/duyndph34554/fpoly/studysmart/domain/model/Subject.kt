@@ -13,7 +13,7 @@ import duyndph34554.fpoly.studysmart.presentation.theme.gradient5
 data class Subject(
     val name: String,
     val goalHours: Float,
-    val colors: List<Color>,
+    val colors: List<Int>,
     @PrimaryKey(autoGenerate = true)
     val subjectId: Int? = null
 ) {

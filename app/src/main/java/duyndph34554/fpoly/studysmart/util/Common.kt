@@ -28,3 +28,13 @@ fun Long?.changeMillisToDateString(): String {
     } ?: LocalDate.now()
     return date.format(DateTimeFormatter.ofPattern("dd MMM yyyy"))
 }
+
+fun Long.toHours(): Float {
+    val hours = this.toFloat() / 3600f
+    return try {
+        "%.2f".format(hours).replace(",", ".").toFloat()
+    } catch (e: NumberFormatException) {
+        e.printStackTrace()
+        0f
+    }
+}

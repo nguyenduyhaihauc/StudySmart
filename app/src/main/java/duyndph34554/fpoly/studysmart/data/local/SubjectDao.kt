@@ -1,23 +1,30 @@
 package duyndph34554.fpoly.studysmart.data.local
 
 import androidx.room.Dao
+import androidx.room.Query
 import androidx.room.Upsert
 import duyndph34554.fpoly.studysmart.domain.model.Subject
+import kotlinx.coroutines.flow.Flow
 
 @Dao
 interface SubjectDao {
 
     @Upsert
-    fun upsertSubject(subject: Subject)
-    
-    fun getTotalSubjectCount(): Int
+    suspend fun upsertSubject(subject: Subject)
 
-    fun getTotalGoalHours(): Float
+    @Query("SELECT COUNT(*) FROM SUBJECT")
+    fun getTotalSubjectCount(): Flow<Int>
 
-    fun getSubjectById(subjectId: Int): Subject?
+    @Query("SELECT SUM(goalHours) FROM SUBJECT")
+    fun getTotalGoalHours(): Flow<Float>
 
-    fun deleteSubject(subjectId: Int)
+    @Query("SELECT * FROM Subject WHERE subjectId = :subjectId")
+    suspend fun getSubjectById(subjectId: Int): Subject?
 
-    fun getAllSubject(): List<Subject>
+    @Query("DELETE FROM Subject WHERE subjectId = :subjectId")
+    suspend fun deleteSubject(subjectId: Int)
+
+    @Query("SELECT * FROM Subject")
+    fun getAllSubject(): Flow<List<Subject>>
 
 }

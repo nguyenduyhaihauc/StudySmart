@@ -1,5 +1,6 @@
 package duyndph34554.fpoly.studysmart.util
 
+import androidx.compose.material3.SnackbarDuration
 import androidx.compose.ui.graphics.Color
 import duyndph34554.fpoly.studysmart.presentation.theme.Green
 import duyndph34554.fpoly.studysmart.presentation.theme.Orange
@@ -37,4 +38,14 @@ fun Long.toHours(): Float {
         e.printStackTrace()
         0f
     }
+}
+
+sealed class SnackbarEvent{
+
+    data class ShowSnackbar(
+        val message: String,
+        val duration: SnackbarDuration = SnackbarDuration.Short
+    ) : SnackbarEvent()
+
+    data object NavigateUp: SnackbarEvent()
 }

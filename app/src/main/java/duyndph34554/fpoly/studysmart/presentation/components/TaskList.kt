@@ -28,6 +28,7 @@ import androidx.compose.ui.unit.dp
 import duyndph34554.fpoly.studysmart.R
 import duyndph34554.fpoly.studysmart.domain.model.Task
 import duyndph34554.fpoly.studysmart.util.Priority
+import duyndph34554.fpoly.studysmart.util.changeMillisToDateString
 
 fun LazyListScope.taskList(
     sectionTitle: String,
@@ -110,7 +111,7 @@ private fun TaskCard(
                 )
                 Spacer(modifier = Modifier.height(4.dp))
                 Text(
-                    text = "${task.dueDate}",
+                    text = task.dueDate.changeMillisToDateString(),
                     style = MaterialTheme.typography.bodySmall
                 )
             }

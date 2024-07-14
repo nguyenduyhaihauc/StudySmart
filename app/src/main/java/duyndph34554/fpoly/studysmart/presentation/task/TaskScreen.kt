@@ -31,7 +31,6 @@ import androidx.compose.material3.SnackbarHost
 import androidx.compose.material3.SnackbarHostState
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
-import androidx.compose.material3.rememberBottomSheetScaffoldState
 import androidx.compose.material3.rememberDatePickerState
 import androidx.compose.material3.rememberModalBottomSheetState
 import androidx.compose.runtime.Composable
@@ -54,8 +53,6 @@ import duyndph34554.fpoly.studysmart.presentation.components.DeleteDialog
 import duyndph34554.fpoly.studysmart.presentation.components.SubjectListBottomSheet
 import duyndph34554.fpoly.studysmart.presentation.components.TaskCheckBox
 import duyndph34554.fpoly.studysmart.presentation.components.TaskDatePicker
-import duyndph34554.fpoly.studysmart.presentation.theme.Red
-import duyndph34554.fpoly.studysmart.subjects
 import duyndph34554.fpoly.studysmart.util.Priority
 import duyndph34554.fpoly.studysmart.util.SnackbarEvent
 import duyndph34554.fpoly.studysmart.util.changeMillisToDateString

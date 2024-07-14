@@ -61,8 +61,6 @@ import duyndph34554.fpoly.studysmart.presentation.destinations.SubjectScreenRout
 import duyndph34554.fpoly.studysmart.presentation.destinations.TaskScreenRouteDestination
 import duyndph34554.fpoly.studysmart.presentation.subject.SubjectScreenNavArgs
 import duyndph34554.fpoly.studysmart.presentation.task.TaskScreenNavArgs
-import duyndph34554.fpoly.studysmart.sessions
-import duyndph34554.fpoly.studysmart.tasks
 import duyndph34554.fpoly.studysmart.util.SnackbarEvent
 import kotlinx.coroutines.flow.SharedFlow
 import kotlinx.coroutines.flow.collectLatest
@@ -107,28 +105,27 @@ fun DashboardScreenRoute(
 
 @Composable
 private fun DashboardScreen(
-    state: DashboardState,
-    tasks: List<Task>,
+    state: DashboardState, //Trang thai hien tai cua man hinh
+    tasks: List<Task>, //Danh sách cong viec
     recentSessions: List<Session>,
-    onEvent: (DashboardEvent) -> Unit,
+    onEvent: (DashboardEvent) -> Unit, //Ham xu ly su kien khi co 1 su kien xay ra
     snackbarEvent: SharedFlow<SnackbarEvent>,
-    onSubjectCardClick: (Int?) -> Unit,
-    onTaskCardClick: (Int?) -> Unit,
+    onSubjectCardClick: (Int?) -> Unit, //Ham xu ly su kien khi nguoi
+    onTaskCardClick: (Int?) -> Unit,    // dung nha vao cac thanh phan tuong ung
     onStartSessionButtonClick: () -> Unit
 ) {
 
-    var isAddSubjectDialog by rememberSaveable {
-        mutableStateOf(false)
-    }
-    var isDeleteSessionDialog by rememberSaveable {
-        mutableStateOf(false)
-    }
+//   Bien trang thai duoc lưu tru bao toan qua viec luu lại man hinh
+    var isAddSubjectDialog by rememberSaveable { mutableStateOf(false) }
+    var isDeleteSessionDialog by rememberSaveable { mutableStateOf(false) }
 
-    val snackbarHostState = remember { SnackbarHostState() }
+    val snackbarHostState = remember { SnackbarHostState() } //Quan ly trang thai Snackbar
 
+//    Lang nghe su kien tu Snackbar
     LaunchedEffect(key1 = true) {
         snackbarEvent.collectLatest { event ->
             when(event) {
+//                Hien thi Snackbar khi có sư kien
                 is SnackbarEvent.ShowSnackbar -> {
                     snackbarHostState.showSnackbar(
                         message = event.message,
@@ -141,6 +138,7 @@ private fun DashboardScreen(
         }
     }
 
+//    Hop thoai Xu ly su kien them subject moi
     AddSubjectDialog(
         isOpen = isAddSubjectDialog,
         subjectName = state.subjectName,
@@ -156,6 +154,7 @@ private fun DashboardScreen(
         }
     )
 
+//    Hop thoai xac nhan khi nguoi dung xoa subject
     DeleteDialog(
         isOpen = isDeleteSessionDialog,
         title = "Delete Session?",
@@ -177,6 +176,7 @@ private fun DashboardScreen(
                 .fillMaxSize()
                 .padding(paddingValues)
         ) {
+//            Hien thi tong so mon hoc va tong so gio hoc
             item {
                 CountCardsSection(
                     modifier = Modifier
@@ -188,6 +188,7 @@ private fun DashboardScreen(
                 )
             }
 
+//          Hien thi danh sach cac the mon hoc va nut them mon hoc moi
             item {
                 SubjectCardsSection(
                     modifier = Modifier.fillMaxWidth(),
@@ -198,6 +199,7 @@ private fun DashboardScreen(
                     onSubjectCardClick = onSubjectCardClick
                 )
             }
+//            Nut de bat dau phien hoc moi
             item {
                 Button(
                     onClick = onStartSessionButtonClick,
@@ -208,6 +210,7 @@ private fun DashboardScreen(
                     Text(text = "Start Study Session")
                 }
             }
+//            Hien thi danh sach cong viec sap toi
             taskList(
                 sectionTitle = "UPCOMING TASKS",
                 emptyListText = "You don't have any upcoming tasks.\n" +
@@ -219,6 +222,7 @@ private fun DashboardScreen(
             item { 
                 Spacer(modifier = Modifier.height(20.dp))
             }
+//            Hien thi danh sach cac phien hoc gan day
             studySessionsList(
                 sectionTitle = "RECENT STUDY SESSION",
                 emptyListText = "You don't have any recent study sessions.\n" +
@@ -245,7 +249,7 @@ private fun DashboardScreenTopBar() {
     )
 }
 
-// Header
+// Hien thi tong so mon hoc va tong so gio hoc
 @Composable
 private fun CountCardsSection(
     modifier: Modifier,

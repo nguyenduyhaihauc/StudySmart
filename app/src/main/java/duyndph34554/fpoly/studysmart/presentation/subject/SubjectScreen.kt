@@ -48,7 +48,6 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.ramcosta.composedestinations.annotation.Destination
 import com.ramcosta.composedestinations.navigation.DestinationsNavigator
-import duyndph34554.fpoly.studysmart.domain.model.Subject
 import duyndph34554.fpoly.studysmart.presentation.components.AddSubjectDialog
 import duyndph34554.fpoly.studysmart.presentation.components.CountCard
 import duyndph34554.fpoly.studysmart.presentation.components.DeleteDialog
@@ -56,8 +55,6 @@ import duyndph34554.fpoly.studysmart.presentation.components.studySessionsList
 import duyndph34554.fpoly.studysmart.presentation.components.taskList
 import duyndph34554.fpoly.studysmart.presentation.destinations.TaskScreenRouteDestination
 import duyndph34554.fpoly.studysmart.presentation.task.TaskScreenNavArgs
-import duyndph34554.fpoly.studysmart.sessions
-import duyndph34554.fpoly.studysmart.tasks
 import duyndph34554.fpoly.studysmart.util.SnackbarEvent
 import kotlinx.coroutines.flow.SharedFlow
 import kotlinx.coroutines.flow.collectLatest

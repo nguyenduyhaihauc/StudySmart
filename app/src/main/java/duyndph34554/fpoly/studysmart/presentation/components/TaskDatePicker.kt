@@ -17,10 +17,10 @@ import java.time.ZoneId
 @Composable
 fun TaskDatePicker(
     state: DatePickerState,
-    isOpen: Boolean,
+    isOpen: Boolean, //mo Dialog
     confirmButtonText: String = "Ok",
     dismissButtonText: String = "Cancel",
-    onDismissRequest: () -> Unit,
+    onDismissRequest: () -> Unit, //ham lamda function xu ly dong Dialog
     onConfirmButtonClicked: (selectedDate: LocalDate) -> Unit
 ) {
     val selectedDate = remember { mutableStateOf<LocalDate?>(null) }

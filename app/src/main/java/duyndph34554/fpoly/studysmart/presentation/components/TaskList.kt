@@ -45,6 +45,7 @@ fun LazyListScope.taskList(
         )
     }
 
+//    Kiem tra neu task trong thi hien thi thong bao
     if (tasks.isEmpty()) {
         item {
             Column (

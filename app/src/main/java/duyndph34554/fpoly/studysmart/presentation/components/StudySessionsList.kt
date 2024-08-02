@@ -31,12 +31,14 @@ import duyndph34554.fpoly.studysmart.domain.model.Session
 import duyndph34554.fpoly.studysmart.util.changeMillisToDateString
 import duyndph34554.fpoly.studysmart.util.toHours
 
+//LazyListScope tao ra danh sach linh hoat, quan ly cac phan tu cua ds 1 cach hieu qua
 fun LazyListScope.studySessionsList(
-    sectionTitle: String,
-    emptyListText: String,
-    sessions: List<Session>,
-    onDeleteIconClick: (Session) -> Unit
+    sectionTitle: String, //Tieu de danh sach
+    emptyListText: String, //Van ban hien thi khi ds rong
+    sessions: List<Session>, //Danh sach cac phien hoc
+    onDeleteIconClick: (Session) -> Unit //Ham lambda xu ly su kien xoa
 ) {
+//    item hien thi tieu de
     item {
         Text(
             text = sectionTitle,
@@ -45,6 +47,7 @@ fun LazyListScope.studySessionsList(
         )
     }
 
+//    Kiem tra neu ds trong thi hien thị doan van ban
     if (sessions.isEmpty()) {
         item {
             Column (
@@ -67,6 +70,7 @@ fun LazyListScope.studySessionsList(
 
         }
     }
+//    Neu ds khong rong thi hiển thi ds dung items de lap qua tung phan tu session
     items(sessions) {session ->
         StudySessionCard(
             modifier = Modifier.padding(horizontal = 12.dp, vertical = 4.dp),
@@ -76,11 +80,12 @@ fun LazyListScope.studySessionsList(
     }
 }
 
+//item Session
 @Composable
 private fun StudySessionCard(
     modifier: Modifier = Modifier,
-    session: Session,
-    onDeleteIconClick: () -> Unit
+    session: Session, //khai bao doi tuong Session
+    onDeleteIconClick: () -> Unit //ham lambda su ly su kien khi nhap vao Icon xoa
 ) {
     Card (
         modifier = modifier
@@ -93,6 +98,7 @@ private fun StudySessionCard(
             Column (
                 modifier = Modifier.padding(start = 12.dp)
             ) {
+//                Name Session
                 Text(
                     text = session.relatedToSubject,
                     maxLines = 1,
@@ -100,16 +106,19 @@ private fun StudySessionCard(
                     style = MaterialTheme.typography.titleMedium,
                 )
                 Spacer(modifier = Modifier.height(4.dp))
+//                date study session
                 Text(
                     text = session.date.changeMillisToDateString(),
                     style = MaterialTheme.typography.bodySmall
                 )
             }
             Spacer(modifier = Modifier.weight(1f))
+//            Time study session
             Text(
                 text = "${session.duration.toHours()} hr",
                 style = MaterialTheme.typography.titleMedium
             )
+//            Icon Delete
             IconButton(onClick = onDeleteIconClick) {
                 Icon(
                     imageVector = Icons.Default.Delete,

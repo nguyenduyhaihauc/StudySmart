@@ -18,12 +18,13 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import duyndph34554.fpoly.studysmart.R
 
+//item Subject
 @Composable
 fun SubjectCard(
     modifier: Modifier = Modifier,
-    subjectName: String,
-    gradientColors: List<Color>,
-    onClick: () -> Unit
+    subjectName: String, //Name Subject
+    gradientColors: List<Color>, //Color Subject
+    onClick: () -> Unit //Ham lambda xu ly su kien khi nhan vao item
 ) {
     Box (modifier = modifier
             .size(150.dp)
@@ -37,11 +38,13 @@ fun SubjectCard(
             modifier = Modifier.padding(12.dp),
             verticalArrangement = Arrangement.Center
         ) {
+//            Hien thi icon Subject
             Image(
                 painter = painterResource(id = R.drawable.img_books),
                 contentDescription = subjectName,
                 modifier = Modifier.size(80.dp)
             )
+//            Name Subject
             Text(
                 text = subjectName,
                 style = MaterialTheme.typography.headlineMedium,

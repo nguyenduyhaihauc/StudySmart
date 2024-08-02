@@ -17,6 +17,8 @@ data class Subject(
     @PrimaryKey(autoGenerate = true)
     val subjectId: Int? = null
 ) {
+//  companion object la 1 doi tuong dac biet cho phep khi thac cac thanh vien tinh
+//    Cac thanh vien co the duoc truy cap truc tiep ma khong can qua ten lop
     companion object {
         val subjectCardColors = listOf(gradient1, gradient2, gradient3, gradient4, gradient5)
     }

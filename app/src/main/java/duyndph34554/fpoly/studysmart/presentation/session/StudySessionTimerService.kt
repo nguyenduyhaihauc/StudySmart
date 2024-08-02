@@ -114,6 +114,7 @@ class StudySessionTimerService : Service() {
         )
     }
 
+//    bat dau chay tinh thoi gian
     private fun startTimer(
         onTick: (h: String, m: String, s: String) -> Unit
     ) {
@@ -125,6 +126,7 @@ class StudySessionTimerService : Service() {
         }
     }
 
+//    Xu ly ham dung thoi gian chay
     private fun stopTimer() {
         if (this::timer.isInitialized) {
             timer.cancel()
@@ -132,6 +134,7 @@ class StudySessionTimerService : Service() {
         currentTimerState.value = TimerState.STOPPED
     }
 
+//    Huy thoi gian
     private fun cancelTimer() {
         duration = Duration.ZERO
         updateTimeUnits()
@@ -151,8 +154,9 @@ class StudySessionTimerService : Service() {
     }
 }
 
+// enum chua cac gia tri co dinh
 enum class TimerState {
-    IDLE,
-    STARTED,
-    STOPPED
+    IDLE, //Trang thai khong hoat dong
+    STARTED, //Trang thai bat dau
+    STOPPED //Trang thai da dung
 }

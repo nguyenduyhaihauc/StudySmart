@@ -19,9 +19,10 @@ import androidx.compose.ui.unit.sp
 @Composable
 fun CountCard(
     modifier: Modifier = Modifier,
-    headingText: String,
-    count: String
+    headingText: String, //Tieu de mon hoc
+    count: String //Thoi luong
 ) {
+//    ElevatedCard tao the voi hieu ưng noi
     ElevatedCard (modifier = modifier) {
         Column (modifier = Modifier
                 .fillMaxWidth()

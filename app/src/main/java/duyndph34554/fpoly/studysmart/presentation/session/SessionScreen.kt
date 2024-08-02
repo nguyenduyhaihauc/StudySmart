@@ -96,7 +96,7 @@ fun SessionScreenRoute(
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 private fun SessionScreen(
-    state: SessionState,
+    state: SessionState, //trang thai
     snackbarEvent: SharedFlow<SnackbarEvent>,
     onEvent: (SessionEvent) -> Unit,
     onBackButtonClick: () -> Unit,

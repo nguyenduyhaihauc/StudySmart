@@ -122,6 +122,7 @@ private fun DashboardScreen(
     val snackbarHostState = remember { SnackbarHostState() } //Quan ly trang thai Snackbar
 
 //    Lang nghe su kien tu Snackbar
+
     LaunchedEffect(key1 = true) {
         snackbarEvent.collectLatest { event ->
             when(event) {

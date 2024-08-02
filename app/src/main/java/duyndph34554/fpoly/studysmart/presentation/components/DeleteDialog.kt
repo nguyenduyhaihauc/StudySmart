@@ -7,11 +7,11 @@ import androidx.compose.runtime.Composable
 
 @Composable
 fun DeleteDialog(
-    isOpen: Boolean,
-    title: String,
-    bodyText: String,
-    onDismissRequest: () -> Unit,
-    onConfirmButtonClick: () -> Unit
+    isOpen: Boolean, //Kiem tra de mo hop thoai
+    title: String, //Tieu de dialog
+    bodyText: String, //Text trong body Dialog
+    onDismissRequest: () -> Unit, //Ham callback xu ly dong hop thoai
+    onConfirmButtonClick: () -> Unit // Ham callback xu ly nut xac nhan xoa
 ) {
     if (isOpen) {
         AlertDialog(

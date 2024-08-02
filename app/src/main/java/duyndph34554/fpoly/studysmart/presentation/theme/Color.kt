@@ -2,6 +2,7 @@ package duyndph34554.fpoly.studysmart.presentation.theme
 
 import androidx.compose.ui.graphics.Color
 
+//them moi bang danh sach mau sac
 val md_theme_light_primary = Color(0xFF185ABE)
 val md_theme_light_onPrimary = Color(0xFFFFFFFF)
 val md_theme_light_primaryContainer = Color(0xFFD8E2FF)

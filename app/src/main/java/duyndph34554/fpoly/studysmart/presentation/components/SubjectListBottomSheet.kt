@@ -22,13 +22,14 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import duyndph34554.fpoly.studysmart.domain.model.Subject
 
+//Hien thi name subject duoi dang Bottom Sheet
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun SubjectListBottomSheet(
-    sheetState: SheetState,
-    isOpen: Boolean,
-    subjects: List<Subject>,
-    bottomSheetTitle: String = "Related to subject",
+    sheetState: SheetState, //Trang thai cua bang duoi dang Bottom Sheet
+    isOpen: Boolean, //Kiem tra xem bang co mo hay khong
+    subjects: List<Subject>, //Danh sach mon hoc(subject)
+    bottomSheetTitle: String = "Related to subject", //Title Bottom Sheet
     onSubjectClicked: (Subject) -> Unit,
     onDismissRequest: () -> Unit
 ) {
